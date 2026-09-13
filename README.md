@@ -1,1 +1,7 @@
-Proyecto desarrollado para el módulo teórico práctico de Front End (Profesional). Aplicación web tipo periódico donde los usuarios pueden explorar noticias de distintas categorías (educativas, tecnológicas, turísticas y comerciales), visualizar su información detallada e interactuar mediante funcionalidades de favoritos y contacto.
+├── mockups/          # Capturas y documentación de diseño (Entrega 1)
+├── src/               # Código fuente (HTML, CSS, JS) — a partir de la Entrega 2
+│   ├── index.html
+│   ├── styles/
+│   ├── scripts/
+│   └── data/          # JSON con la información de las noticias
+└── README.md
