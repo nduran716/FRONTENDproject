@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias - NewsHub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <a href="index.html" class="logo">NewsHub</a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listado.html" aria-current="page">Noticias</a></li>
+        <li><a href="listado.html?favoritos=1">Favoritos</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===================== LISTADO ===================== -->
+  <section class="section">
+    <div class="container">
+
+      <div class="toolbar">
+        <h2 id="titulo-listado" style="margin:0;">Noticias</h2>
+        <div class="toolbar-controls">
+          <input
+            type="search"
+            id="buscador"
+            class="field-inline"
+            placeholder="Buscar..."
+            aria-label="Buscar noticias"
+          />
+          <select id="filtro-categoria" class="field-inline" aria-label="Filtrar por categoria">
+            <option value="">Todas las categorias</option>
+            <!-- Opciones generadas dinamicamente desde CATEGORIAS -->
+          </select>
+          <button id="btn-nueva" class="btn btn-primary">+ Nueva noticia</button>
+        </div>
+      </div>
+
+      <div id="cards-listado" class="grid-cards">
+        <!-- Las cards se insertan dinamicamente desde listado.js -->
+      </div>
+
+      <p id="mensaje-vacio" class="empty-state" hidden>
+        No se encontraron noticias con ese criterio de busqueda.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <span>&copy; 2026 NewsHub. Todos los derechos reservados.</span>
+    <span>contacto@newshub.com &nbsp;|&nbsp; +57 300 000 0000</span>
+  </footer>
+
+  <!-- ===================== MODAL: NUEVA NOTICIA ===================== -->
+  <div class="modal-overlay" id="modal-nueva-noticia">
+    <div class="modal" role="dialog" aria-labelledby="modal-titulo" aria-modal="true">
+      <button class="modal-close" id="btn-cerrar-modal" aria-label="Cerrar">&times;</button>
+      <h2 id="modal-titulo">Nueva noticia</h2>
+      <form id="form-nueva-noticia" novalidate>
+        <div class="form-field">
+          <label for="input-titulo">Titulo *</label>
+          <input type="text" id="input-titulo" name="titulo" required maxlength="120" />
+          <span class="error-msg">Por favor ingresa un titulo.</span>
+        </div>
+        <div class="form-field">
+          <label for="input-categoria">Categoria *</label>
+          <select id="input-categoria" name="categoria" required class="field-inline" style="width:100%;">
+            <!-- Opciones generadas dinamicamente -->
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="input-descripcion">Descripcion breve *</label>
+          <input type="text" id="input-descripcion" name="descripcionBreve" required maxlength="160" />
+          <span class="error-msg">Por favor ingresa una descripcion breve.</span>
+        </div>
+        <div class="form-field">
+          <label for="input-contenido">Contenido completo *</label>
+          <textarea id="input-contenido" name="contenido" required maxlength="2000"></textarea>
+          <span class="error-msg">Por favor ingresa el contenido de la noticia.</span>
+        </div>
+        <p class="required-note">* Campos obligatorios</p>
+        <button type="submit" class="submit-btn">Crear noticia</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/listado.js"></script>
+</body>
+</html>
