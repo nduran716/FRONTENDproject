@@ -1,0 +1,27 @@
+<section class="hero">
+  <h1>Mantente informado, al instante</h1>
+  <p>Noticias educativas, tecnologicas, turisticas y comerciales en un solo lugar</p>
+  <a routerLink="/listado" class="btn btn-primary">Explorar noticias</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Noticias destacadas</h2>
+    <div class="grid-cards">
+      <article class="card" *ngFor="let noticia of destacadas">
+        <img [src]="noticia.imagen" [alt]="'Imagen de la noticia: ' + noticia.titulo" />
+        <span class="card-category">{{ etiqueta(noticia.categoria) }}</span>
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.descripcionBreve }}</p>
+        <div class="card-actions">
+          <a class="btn btn-secondary" [routerLink]="['/detalle', noticia.id]">Ver mas</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial" id="nosotros">
+  <blockquote>&ldquo;Gracias a esta plataforma me entero de las noticias de mi region antes que nadie&rdquo;</blockquote>
+  <cite>&mdash; Usuario frecuente</cite>
+</section>

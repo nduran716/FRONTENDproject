@@ -1,0 +1,28 @@
+<header class="site-header">
+  <a routerLink="/" class="logo">NewNews.com</a>
+
+  <button class="nav-toggle" (click)="alternarMenu()" aria-label="Abrir menu">
+    &#9776;
+  </button>
+
+  <nav>
+    <ul class="site-nav" [class.open]="menuAbierto">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+      <li><a routerLink="/listado" routerLinkActive="active">Noticias</a></li>
+      <li><a routerLink="/listado" [queryParams]="{ favoritos: 1 }">Favoritos</a></li>
+      <li><a routerLink="/" fragment="nosotros">Nosotros</a></li>
+      <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="site-footer">
+  <span>&copy; 2026 NewNews.com. Todos los derechos reservados.</span>
+  <span>contacto&#64;newnews.com &nbsp;|&nbsp; +57 300 000 0000</span>
+</footer>

@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <h2>{{ tituloListado }}</h2>
+
+    <div class="grid-cards" *ngIf="noticias.length > 0">
+      <article class="card" *ngFor="let noticia of noticias">
+        <img [src]="noticia.imagen" [alt]="'Imagen de la noticia: ' + noticia.titulo" />
+        <span class="card-category">{{ etiqueta(noticia.categoria) }}</span>
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.descripcionBreve }}</p>
+        <div class="card-actions">
+          <a class="btn btn-secondary" [routerLink]="['/detalle', noticia.id]">Ver mas</a>
+          <button
+            type="button"
+            class="btn"
+            [class.btn-danger]="esFavorita(noticia.id)"
+            [class.btn-secondary]="!esFavorita(noticia.id)"
+            (click)="manejarEliminar(noticia.id)"
+          >
+            Eliminar
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <p class="empty-state" *ngIf="noticias.length === 0">
+      No tienes noticias en esta lista todavia.
+    </p>
+  </div>
+</section>
